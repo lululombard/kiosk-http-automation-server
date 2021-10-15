@@ -1,0 +1,14 @@
+[Unit]
+Description=Kiosk HTTP automation server
+Documentation=https://github.com/lululombard/kiosk-http-automation-server
+After=graphical.target
+
+[Service]
+User=root
+Environment="ALLOWED_KIOSK_SERVICES=grafana-kiosk.service;vlc.service"
+Environment="DISPLAY_KIOSK_USER=ubuntu"
+WorkingDirectory=/opt/kiosk-http-automation-server
+ExecStart=/opt/kiosk-http-automation-server/env/bin/python server.py
+
+[Install]
+WantedBy=graphical.target
